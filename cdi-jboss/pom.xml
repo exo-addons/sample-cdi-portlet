@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-      <artifactId>sample-cdi-portlet</artifactId>
-      <groupId>org.exoplatform.addons.sample-cdi</groupId>
-      <version>1.0.x-SNAPSHOT</version>
-    </parent>
-
-    <artifactId>sample-cdi-portlet-jboss</artifactId>
-    <packaging>war</packaging>
-    <name>CDI Portlet with JSF for JBoss</name>
-    <description>This project demonstrates how to use CDI and JSF in portlets.</description>
-
-    <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>sample-cdi-portlet-commons</artifactId>
-        </dependency>       
-    </dependencies>
-
-    <build>
-        <finalName>${project.artifactId}</finalName>
-        <plugins>
-        </plugins>
-    </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>sample-cdi-portlet</artifactId>
+    <groupId>org.exoplatform.addons.sample-cdi</groupId>
+    <version>1.0.x-SNAPSHOT</version>
+  </parent>
+  <artifactId>sample-cdi-portlet-jboss</artifactId>
+  <packaging>war</packaging>
+  <name>CDI Portlet with JSF for JBoss</name>
+  <description>This project demonstrates how to use CDI and JSF in portlets.</description>
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>sample-cdi-portlet-commons</artifactId>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins />
+  </build>
 </project>
