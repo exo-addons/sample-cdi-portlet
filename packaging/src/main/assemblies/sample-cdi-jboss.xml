@@ -32,7 +32,7 @@
     <dependencySet>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>${project.groupId}:cdi-jboss:war</include>
+        <include>${project.groupId}:sample-cdi-portlet-jboss:war</include>
       </includes>
       <outputFileNameMapping>cdi-jboss.war</outputFileNameMapping>
     </dependencySet>

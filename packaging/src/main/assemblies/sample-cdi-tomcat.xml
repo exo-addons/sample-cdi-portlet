@@ -39,7 +39,7 @@
     <dependencySet>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>${project.groupId}:cdi-tomcat:war</include>
+        <include>${project.groupId}:sample-cdi-portlet-tomcat:war</include>
       </includes>
       <outputFileNameMapping>cdi-tomcat.war</outputFileNameMapping>
     </dependencySet>

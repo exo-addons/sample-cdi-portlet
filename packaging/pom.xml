@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>sample-cdi-portlet-parent</artifactId>
-    <groupId>org.exoplatform.addons.portlets</groupId>
+    <artifactId>sample-cdi-portlet</artifactId>
+    <groupId>org.exoplatform.addons.sample-cdi</groupId>
     <version>1.0.x-SNAPSHOT</version>
   </parent>
   <artifactId>sample-cdi-portlet-packaging</artifactId>
@@ -17,18 +17,18 @@
     </dependency>
 
     <dependency>
-      <groupId>org.exoplatform.addons.portlets</groupId>
-      <artifactId>cdi-tomcat</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>sample-cdi-portlet-tomcat</artifactId>
       <type>war</type>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.addons.portlets</groupId>
-      <artifactId>cdi-jboss</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>sample-cdi-portlet-jboss</artifactId>
       <type>war</type>
     </dependency>
   </dependencies>
   <build>
-    <finalName>sample-cdi-portlet</finalName>
+    <finalName>sample-cdi-portlet-packaging</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
