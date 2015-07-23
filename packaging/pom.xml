@@ -35,28 +35,26 @@
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
           <execution>
-            <id>package-jboss</id>
+            <id>jboss</id>
             <phase>package</phase>
             <goals>
               <goal>single</goal>
             </goals>
             <configuration>
-              <finalName>sample-cdi-jboss</finalName>
-              <appendAssemblyId>false</appendAssemblyId>
+              <appendAssemblyId>true</appendAssemblyId>
               <descriptors>
                 <descriptor>src/main/assemblies/sample-cdi-jboss.xml</descriptor>
               </descriptors>
             </configuration>
           </execution>
           <execution>
-            <id>package-tomcat</id>
+            <id>tomcat</id>
             <phase>package</phase>
             <goals>
               <goal>single</goal>
             </goals>
             <configuration>
-              <finalName>sample-cdi-tomcat</finalName>
-              <appendAssemblyId>false</appendAssemblyId>
+              <appendAssemblyId>true</appendAssemblyId>
               <descriptors>
 	 	<descriptor>src/main/assemblies/sample-cdi-tomcat.xml</descriptor>
               </descriptors>
