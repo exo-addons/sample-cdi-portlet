@@ -94,29 +94,21 @@ public class CDIScopesPortlet extends GenericPortlet {
         }
     }
 
-    /**
-     * Note that serving a {@link ResourceRequest} during {@link #serveResource(ResourceRequest, ResourceResponse)} is
-     * considered separate from the regular Portlet Lifecycle, so any changes to a CDI bean within a ResourceRequest will not be
-     * reflected in the instance of the bean used during an ActionRequest, EventRequest or RenderRequest, just as any changes to
-     * bean state within these requests will not be reflected in the instance that a ResourceRequest sees.
-     *
-     * @see javax.portlet.GenericPortlet#serveResource(javax.portlet.ResourceRequest, javax.portlet.ResourceResponse)
-     */
     @Override
     public void serveResource(ResourceRequest request, ResourceResponse response) throws PortletException, IOException {
         String resourceId = request.getResourceID();
         if ("lifecycleScopedBean.getText()".equals(resourceId)) {
-            response.getWriter().write("lifecycleScopedBean.text is currently set to '" + lifecycleScopedBean.getText() + "'.");
+            response.getWriter().write("lifecycleScopedBean.text value is '" + lifecycleScopedBean.getText() + "' currently.");
         } else if ("lifecycleScopedBean.setText()".equals(resourceId)) {
             String text = lifecycleScopedBean.getText();
             lifecycleScopedBean.setText("Ajax");
-            response.getWriter().write("lifecycleScopedBean.text was set to '" + text + "', but is now set to 'Ajax'.");
+            response.getWriter().write("lifecycleScopedBean.text value was '" + text + "', but is now set to '" + lifecycleScopedBean.getText() + "'.");
         } else if ("redisplayScopedBean.getText()".equals(resourceId)) {
-            response.getWriter().write("redisplayScopedBean.text is currently set to '" + redisplayScopedBean.getText() + "'.");
+            response.getWriter().write("redisplayScopedBean.text is '" + redisplayScopedBean.getText() + "' currently.");
         } else if ("redisplayScopedBean.setText()".equals(resourceId)) {
             String text = redisplayScopedBean.getText();
             redisplayScopedBean.setText("Ajax");
-            response.getWriter().write("redisplayScopedBean.text was set to '" + text + "', but is now set to 'Ajax'.");
+            response.getWriter().write("redisplayScopedBean.text was '" + text + "', but is now set to '" + redisplayScopedBean.getText() + "'.");
         } else {
             response.getWriter().write("Unexpected resourceId '" + resourceId + "'.");
             log.warning("Unexpected resourceId '" + resourceId + "'.");

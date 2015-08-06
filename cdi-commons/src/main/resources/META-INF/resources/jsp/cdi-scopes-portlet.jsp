@@ -11,16 +11,16 @@ div.CDIScopesPortlet {
 }
 
 .CDIScopesPortlet h1 {
-    font-size: 16px;
+    font-size: 20px;
     background-color: #dedfdf;
     padding: 2px 4px;
     margin-bottom: 2px;
 }
 
 .CDIScopesPortlet h2 {
-    font-size: 14px;
+    font-size: 18px;
     padding: 4px;
-    margin: 0;
+    margin-top: 30px;
 }
 
 .CDIScopesPortlet p {
@@ -63,69 +63,63 @@ div.CDIScopesPortlet {
     
     <p>
         Before you proceed, you may want to read 
-        <a id="gatein.devguide.cdi.scope.portlets.url" href="https://docs.jboss.org/author/display/GTNPORTAL37/Portlet+CDI+Scopes">Portlet CDI Scopes</a>
+        <a id="gatein.devguide.cdi.scope.portlets.url" href="https://docs.jboss.org/author/display/GTNPORTAL37/Portlet+CDI+Scopes" target="_blank">Portlet CDI Scopes</a>
     </p>
     
-    <h2><code>@PortletLifecycleScoped</code></h2>
+    <h2>@PortletLifecycleScoped bean</h2>
     <p>
-        <code>lifecycleScopedBean.text</code> value during <code>Portlet.doView()</code>: 
-        <code>"${lifecycleScopedBean.getText()}"</code>
+        The current value of <code>lifecycleScopedBean.text</code> during <b>render</b> phase: <code>"${lifecycleScopedBean.getText()}"</code>
     </p>
     <form action="<%=myActionURL%>" method="POST">
         <p>
-            Set
-            <code>lifecycleScopedBean.text</code>
-            using
-            <code>ActionRequest</code>
-            of Portlet API 2.0.<br />
+            Submit a value to be set on <code>lifecycleScopedBean.text</code> using <b>Action Request</b> of Portlet API 2.0.<br />
             Text:<input type="text" name="text" /> <input type="Submit" name="lifecycleScopedBean.setText()" value="Submit"/>
         </p>
     </form>
-    <p>After setting a new text using the above form, force performing <code>Portlet.doView()</code> again through 
-    <a href="<%=renderURL%>">revisiting this page</a>.
-    
     <p>
-        <a href="#" onclick="<%=namespace%>callResource('<%=setText1%>');return false;">Set 
-        <code>lifecycleScopedBean.text</code></a> to 'Ajax' using <code>ResourceRequest</code> of Portlet API 2.0.
+      The new value set in the above form will <b>NOT</b> be retained for any further <b>Render Request</b>.<br>
+      It means the value will be back to initial text for next refresh,
+      or you can force performing <b>render</b> again through <a href="<%=renderURL%>">revisiting this page</a>.
     </p>
     <p>
-        <a href="#" onclick="<%=namespace%>callResource('<%=getText1%>');return false;">Get current 
-        <code>lifecycleScopedBean.text</code></a> from server using <code>ResourceRequest</code> of Portlet API 2.0.
+      The <a href="#" onclick="<%=namespace%>callResource('<%=getText1%>');return false;">current value</a> of <code>lifecycleScopedBean.text</code>
+      in <b>Resource Request</b> will NOT be reflected from the bean instance used during ActionRequest, EventRequest or RenderRequest. 
+    </p>
+    <p>
+      <a href="#" onclick="<%=namespace%>callResource('<%=setText1%>');return false;">Set new value 'Ajax'</a>
+      to <code>lifecycleScopedBean.text</code> using <b>Resource Request</b> of Portlet API 2.0
+      will NOT reflect on the bean instance used during an ActionRequest, EventRequest or RenderRequest.
     </p>
 
-    <h2><code>@PortletRedisplayScoped</code></h2>
+    <h2>@PortletRedisplayScoped bean</h2>
     <p>
-        <code>redisplayScopedBean.text</code> value during <code>Portlet.doView()</code>: 
-        <code>"${redisplayScopedBean.getText()}"</code>
+      The current value of <code>redisplayScopedBean.text</code> during <b>render</b> phase: <code>"${redisplayScopedBean.getText()}"</code>
     </p>
     <form action="<%=myActionURL%>" method="POST">
         <p>
-            Set
-            <code>redisplayScopedBean.text</code>
-            using
-            <code>ActionRequest</code>
-            of Portlet API 2.0.<br />
-            Text:<input type="text" name="text" /> <input type="Submit" name="redisplayScopedBean.setText()" value="Submit"/>
+          Submit a value to be set on <code>redisplayScopedBean.text</code> using <b>Action Request</b> of Portlet API 2.0.<br />
+          Text:<input type="text" name="text" /> <input type="Submit" name="redisplayScopedBean.setText()" value="Submit"/>
         </p>
     </form>
-    <p>After setting a new text using the above form, force performing <code>Portlet.doView()</code> again through 
-    <a href="<%=renderURL%>">revisiting this page</a>.
     <p>
-        <a href="#" onclick="<%=namespace%>callResource('<%=setText2%>');return false;">Set <code>redisplayScopedBean.text</code></a> to 'Ajax' using
-        <code>ResourceRequest</code>
-        of Portlet API 2.0.
+      The new value set in the above form will be retained for subsequent <b>Render Request</b>.<br>
+      Try performing <b>render</b> again through <a href="<%=renderURL%>">revisiting this page</a>.
     </p>
     <p>
-        <a href="#" onclick="<%=namespace%>callResource('<%=getText2%>');return false;">Get current <code>redisplayScopedBean.text</code></a> from server
-        using
-        <code>ResourceRequest</code>
-        of Portlet API 2.0.
+      The value of <code>redisplayScopedBean.text</code> will be reset when an ActionRequest or EventRequest or ResourceRequest is trigged.
+      Now try performing a <b>Resource Request</b> to <a href="#" onclick="<%=namespace%>callResource('<%=getText2%>');return false;">get the current value</a>
+       of <code>redisplayScopedBean.text</code> from server. Then <a href="<%=renderURL%>">revisiting this page</a> to see the value will be reset to initial text.
     </p>
-
+    <p>
+      <a href="#" onclick="<%=namespace%>callResource('<%=setText2%>');return false;">Set new value 'Ajax'</a>
+      to <code>redisplayScopedBean.text</code> using <b>Resource Request</b> of Portlet API 2.0
+      will reflect on the bean instance used during next <b>Render Request</b>. Then try <a href="<%=renderURL%>">revisiting this page</a> to see the new value.
+    </p>
+    <br>
+    <br>
+    <br>
+    <br>
     <form action="<%=myActionURL%>" method="POST">
-        <p>
-        <br />
-            <input type="Submit" name="reset" value="Reset All Beans"/>
-        </p>
+        <p> Trigger an <b>Action Request</b> without doing anything will reset all beans. <input type="Submit" name="reset" value="Reset All Beans"/></p>
     </form>
 </div>
