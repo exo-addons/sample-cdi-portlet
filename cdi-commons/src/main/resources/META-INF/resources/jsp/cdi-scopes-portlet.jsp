@@ -26,6 +26,10 @@ div.CDIScopesPortlet {
 .CDIScopesPortlet p {
     margin-left: 4px;
 }
+
+.CDIScopesPortlet code {
+    white-space: normal;
+}
 </style>
 <%@ page import="javax.portlet.RenderResponse" %>
 <%@ page import="javax.portlet.ResourceURL" %>
