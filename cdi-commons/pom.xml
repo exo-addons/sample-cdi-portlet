@@ -4,7 +4,7 @@
   <parent>
     <artifactId>sample-cdi-portlet</artifactId>
     <groupId>org.exoplatform.addons.sample-cdi</groupId>
-    <version>1.0.0</version>
+    <version>1.1.x-SNAPSHOT</version>
   </parent>
   <artifactId>sample-cdi-portlet-commons</artifactId>
   <packaging>jar</packaging>
