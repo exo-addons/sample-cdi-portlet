@@ -50,9 +50,9 @@
     <maven.compiler.target>1.6</maven.compiler.target>
     <maven.compiler.source>1.6</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <org.exoplatform.depmgt.version>11-SNAPSHOT</org.exoplatform.depmgt.version>
-    <platform.version>4.3.x-SNAPSHOT</platform.version>
-    <version.gatein>4.3.x-PLF-SNAPSHOT</version.gatein>
+    <org.exoplatform.depmgt.version>11-M2</org.exoplatform.depmgt.version>
+    <platform.version>4.3.0-M2</platform.version>
+    <version.gatein>4.3.0-M2-PLF</version.gatein>
     <version.weld-servlet>1.1.8.Final</version.weld-servlet>
   </properties>
   <dependencyManagement>
